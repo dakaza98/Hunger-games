@@ -59,11 +59,10 @@ def add_random_point(s):
     # Add the point p to the set s.
     s.add(p)
     
-    # END SKIP
     
 def add_random_points(n, s):
     """
-    Side effects: Add n radnom points to the set s.
+    Side effects: Add n random points to the set s.
     """
     
     for _ in range(n):
