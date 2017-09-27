@@ -39,16 +39,24 @@ def add_random_point(s):
     """
     
     # Generate a random point.
-    p = random_point()
-    if p 
+    p= random_point()
+  
+    while True:
+        if(not p in s):
+           s.add(p)
+           break
+        else:
+            p = random_point()
+        
+ 
+    
     # TODO: Add code here to make sure a new unique element
     # is added to the set s.
     
     # Add the point p to the set s.
-    s.add(p)
-    
+ 
     return s
-
+    
 ########################################################################
 #### Abstraction level 3 - Functions used by the level 2 functions. ####          
 ########################################################################
