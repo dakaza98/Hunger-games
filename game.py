@@ -5,15 +5,15 @@ from random import randint
 
 # https://www.it.uu.se/education/course/homepage/introit/ht17/draft/assignment-1/
 
-# Author: Karl Marklund <karl.marklund@it.uu.se> september 2017. 
+# Author: Karl Marklund <karl.marklund@it.uu.se> september 2017.
 
-# In Python all functions must be defiend before being used. Therefore the top 
+# In Python all functions must be defiend before being used. Therefore the top
 # (the highest level of abstraction) is at the end of this source file and
-# the bottom (the lovest level of abstraction) is at the beginning of this 
-# source file. 
+# the bottom (the lovest level of abstraction) is at the beginning of this
+# source file.
 
 ########################################################################
-#### Abstraction level 5 - Functions used by the level 4 functions. ####          
+#### Abstraction level 5 - Functions used by the level 4 functions. #### 
 ########################################################################
 
 def random_point():
@@ -21,7 +21,7 @@ def random_point():
     Returns a random point (x, y) on the map.
     """
     
-    return (randint(0, 4), 2)
+    return (randint(0, 4), randint(0, 4))
 
 ########################################################################
 #### Abstraction level 4 - Functions used by the level 3 functions. ####          
