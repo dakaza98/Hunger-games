@@ -21,7 +21,7 @@ def random_point():
     Returns a random point (x, y) on the map.
     """
     
-    return (randint(0, 4), 2)
+    return (randint(0, 4), randint(0,4))
 
 ########################################################################
 #### Abstraction level 4 - Functions used by the level 3 functions. ####          
@@ -40,7 +40,7 @@ def add_random_point(s):
     
     # Generate a random point.
     p = random_point()
-
+    if p 
     # TODO: Add code here to make sure a new unique element
     # is added to the set s.
     
