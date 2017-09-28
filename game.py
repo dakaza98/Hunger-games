@@ -192,11 +192,28 @@ def move(hero):
     (x, y) = hero
 
     if button_a.was_pressed():
-       x = x # TODO: Change this.
+        x = makeMove(x)
     elif button_b.was_pressed():
-       y = y # TODO: Change this. 
+        y = makeMove(y)
 
     return (x, y)
+
+def makeMove(coordinate):
+    """
+	Moves the hero to the opposite side of the map if the hero is on the edge.
+	Otherwise, the hero is moved one step.
+	
+	Arguments:
+		coordinate (integer) - The coordinate to be changed (x or y)
+	"""
+    
+    
+    if(coordinate == 4):
+        coordinate = 0
+    else:        
+        coordinate += 1
+       
+    return coordinate
 
 def flash(hero, delay=90):
     """
@@ -213,7 +230,11 @@ def flash(hero, delay=90):
     # Tuple matching to get the x-value and y-value of the hero position.
     (x, y) = hero
 
-    # TODO: Add code here.
+    # Makes the hero flash
+    display.set_pixel(x, y, 9)
+    sleep(delay)
+    display.set_pixel(x, y, 0)
+    sleep(delay)
 
 def spawn(n):
     """
@@ -266,7 +287,7 @@ while True:
         (hero, food) = spawn(5)
 
     # Make the position of the hero flash.
-    flash(hero)
+    flash(hero, 300)
 
     # Update the hero position on button presses.
     hero = move(hero)
