@@ -210,6 +210,7 @@ def flash(hero, delay=90):
     # Makes the hero flash
     display.set_pixel(x, y, 9)
     sleep(delay)
+	
     display.set_pixel(x, y, 0)
     sleep(delay)
 
