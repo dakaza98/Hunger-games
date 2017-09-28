@@ -25,27 +25,24 @@ def random_point():
 ######################################################################## 
   
 def add_random_point(s): 
-    
-   # Argument(s): 
-   #  s (set) - A set with positions (x, y) on the map. 
+    # Argument(s): 
+    #   s (set) - A set with positions (x, y) on the map. 
       
-   # Side effects:  
-   #   Updates the set s. 
+    # Side effects:  
+    #   Updates the set s. 
   
-   # Return value: The set s with a random point added. 
-    
-     
+    # Return value: The set s with a random point added. 
+
     # Generate a random point. 
     p= random_point() 
    
     while True: 
-        if(not p in s): 
+        if(not p in s):
+           # Add the point p to the set s.  
            s.add(p) 
            break 
         else: 
-            p = random_point() 
-     
-    # Add the point p to the set s. 
+            p = random_point()     
   
     return s 
      
@@ -54,28 +51,24 @@ def add_random_point(s):
 ######################################################################## 
   
 def bang(delay): 
-    
-  #  Side effects: Shows a simple but attractive animation on the display. 
+    # Side effects: Shows a simple but attractive animation on the display. 
   
-   # Argument(s): 
-    #  delay - paus (ms) between each image of the animation (default = 85). 
+    # Argument(s): 
+    #   delay - paus (ms) between each image of the animation (default = 85). 
     
     empty = Image("00000:00000:00000:00000:00000") 
     dot = Image("00000:00000:00900:00000:00000") 
     animation= [empty, dot, Image.DIAMOND_SMALL, Image.DIAMOND, empty] 
     display.show (animation, delay= 85) 
   
-  
 def random_points(n): 
-   
-  #  Creates a set with n random points (x, y). 
+    # Creates a set with n random points (x, y). 
   
-   # Argument(s): 
+    # Argument(s): 
     #  n (integer) - Number of point to create. 
   
-   # Return value: A set with n random points (x, y). 
-   
-     
+    # Return value: A set with n random points (x, y). 
+    
     s = set() # An empty set. 
   
     for _ in range(n): 
@@ -88,26 +81,24 @@ def random_points(n):
 ######################################################################## 
   
 def bangs(n=3, delay=85): 
-   
-   # Side effects: Shows the bang() animation on the display. 
+    # Side effects: Shows the bang() animation on the display. 
   
-   # Arguments: 
-   #  n - number of times to repeat the animation. 
-   #  delay - paus (ms) betwwen each image of the animation (default = 85). 
+    # Arguments: 
+    #   n - number of times to repeat the animation. 
+    #   delay - paus (ms) betwwen each image of the animation (default = 85). 
+    
     m=0 
     while m < n: 
         bang(delay) 
         m=m+1 
          
-  
 def spawn_hero_and_food(n): 
-
-   # Argument(s): 
-   #  n - (integer) mount of food to generate. 
+    # Argument(s): 
+    #   n - (integer) mount of food to generate. 
   
-   # Return value: A tuple (hero, food). 
-   #  hero (tuple) - A random position (x, y) for the hero. 
-   # food (set)   - A set with n random positions (x, y) for the food. 
+    # Return value: A tuple (hero, food). 
+    #   hero (tuple) - A random position (x, y) for the hero. 
+    #   food (set)   - A set with n random positions (x, y) for the food. 
      
     # First we generate n + 1 random positions, 
     # n for the food and one for the hero all in set s. 
@@ -120,56 +111,48 @@ def spawn_hero_and_food(n):
     return (hero, s) 
   
 def show(food): 
-   
-  #  Display the food on the map. 
+    # Display the food on the map. 
   
-  # Argument(s): 
-  #  food (set) - A set with positioins (x, y) on the map where   
-  #                   there is food available. 
-  # Side effects: 
-  #  Lights up all the positions on the display where there is 
-  # food available. 
-  
-   # Return value: None. 
-   
+    # Argument(s): 
+    #   food (set) - A set with positioins (x, y) on the map where   
+    #                there is food available. 
+    # Side effects: 
+    #   Lights up all the positions on the display where there is 
+    #   food available. 
   
     for (x,y) in food: 
         display.set_pixel(x,y,9) 
          
-  
 ######################################################################## 
 #### Abstraction level 1 - Functions used by event loop.            #### 
 ######################################################################## 
   
 def eat(hero, food): 
- 
-   # If the hero is on a position on the map where there also is food, eat the 
-   #food. 
+    # If the hero is on a position on the map where there also is food, eat the 
+    # food. 
   
-   #Argument(s): 
-   # hero (tuple) - The position (x, y) of the hero on the map. 
-   #food (set)   - A set with positions (x, y) where there is food on the map. 
+    # Argument(s): 
+    #   hero (tuple) - The position (x, y) of the hero on the map. 
+    #   food (set)   - A set with positions (x, y) where there is food on the map. 
                   
                     
-   #  Side effects: May update the set food. 
+    # Side effects: May update the set food. 
      
-   # Return value: The updated set of food on the map. 
+    # Return value: The updated set of food on the map. 
 
-     
     if hero in food: 
         food.discard(hero)
   
     return food 
   
-def move(hero): 
-    
-   #Update the hero position on button presses. 
+def move(hero):     
+    # Update the hero position on button presses. 
   
-   # Argument(s): 
-   # hero (tuple) - The current position (x, y) of the hero. 
+    # Argument(s): 
+    # hero (tuple) - The current position (x, y) of the hero. 
   
-   # Return values: A tuple (x, y) with the updated position of the 
-   # hero. 
+    # Return values: A tuple (x, y) with the updated position of the 
+    # hero. 
      
     # Tuple matching to get the x-value and y-value of the hero position. 
     (x, y) = hero 
@@ -182,13 +165,11 @@ def move(hero):
     return (x, y) 
   
 def makeMove(coordinate): 
-    
-   #  Moves the hero to the opposite side of the map if the hero is on the edge. 
+   # Moves the hero to the opposite side of the map if the hero is on the edge. 
    # Otherwise, the hero is moved one step. 
      
    # Arguments: 
    #    coordinate (integer) - The coordinate to be changed (x or y) 
-     
      
     if(coordinate == 4): 
         coordinate = 0 
@@ -198,16 +179,12 @@ def makeMove(coordinate):
     return coordinate 
   
 def flash(hero, delay=90): 
-    
-   # Side effects: 
-   #  Make the hero position flash once on the display. 
+    # Side effects: 
+    #   Make the hero position flash once on the display. 
   
-   # Arguments: 
-   #  hero (tuple)    - Position (x, y) of the hero. 
-   # delay (integer) - Duration (ms) of light on and off (default = 100). 
-  
-   #Return value: None. 
-    
+    # Arguments: 
+    #    hero (tuple)    - Position (x, y) of the hero. 
+    #    delay (integer) - Duration (ms) of light on and off (default = 100).    
      
     # Tuple matching to get the x-value and y-value of the hero position. 
     (x, y) = hero 
@@ -219,18 +196,16 @@ def flash(hero, delay=90):
     sleep(delay) 
   
 def spawn(n): 
- ##########################################################
-  #  Argument(s): 
-  #   n (integer) - Amount of food to generate. 
+    # Argument(s): 
+    #   n (integer) - Amount of food to generate. 
   
-  # Side effects: 
-  #   Show an animation on the display. 
+    # Side effects: 
+    #   Show an animation on the display. 
   
-   # Return value: A tuple (hero, food). 
-   #  hero (tuple) - A random position (x, y) for the hero. 
-   # food (set)   - A set with n random positions (x, y) for the food. 
+    # Return value: A tuple (hero, food). 
+    #   hero (tuple) - A random position (x, y) for the hero. 
+    #   food (set)   - A set with n random positions (x, y) for the food. 
   
-     
     (hero, food) = spawn_hero_and_food(n) 
      
     # Show animation. 
@@ -242,10 +217,10 @@ def spawn(n):
     return (hero, food) 
   
 def empty(s): 
-    #Argument(s): 
-    #  s (set) 
+    # Argument(s): 
+    #   s (set) - The set to check if it's empty
   
-    #Return value: True if the set s is empty and otherwise False. 
+    # Return value: True if the set s is empty and otherwise False. 
      
     return len(s) == 0 
   
