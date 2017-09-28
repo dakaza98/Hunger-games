@@ -191,6 +191,13 @@ def move(hero):
     return (x, y)
 
 def makeMove(coordinate):
+	"""
+	Moves the hero to the opposite side of the map if the hero is on the edge.
+	Otherwise, the hero is moved one step.
+	
+	Arguments:
+		coordinate (integer) - The coordinate to be changed (x or y)
+	"""
     if(coordinate == 4):
         coordinate = 0
     else:        
