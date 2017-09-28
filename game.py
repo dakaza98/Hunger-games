@@ -61,7 +61,7 @@ def add_random_point(s):
 #### Abstraction level 3 - Functions used by the level 2 functions. ####          
 ########################################################################
 
-def bang(delay=200):
+def bang(delay):
     """
     Side effects: Shows a simple but attractive animation on the display.
 
@@ -73,7 +73,7 @@ def bang(delay=200):
     empty = Image("00000:00000:00000:00000:00000")
     dot = Image("00000:00000:00900:00000:00000")
     animation= [empty, dot, Image.DIAMOND_SMALL, Image.DIAMOND, empty]
-    display.show (animation, delay= 200)
+    display.show (animation, delay= 85)
 
 
 def random_points(n):
@@ -107,6 +107,11 @@ def bangs(n=3, delay=85):
     """
 
     # TODO: Add code here.
+    m=0
+    while m < n:
+        bang(delay)
+        m=m+1
+        
 
 def spawn_hero_and_food(n):
     """
@@ -143,6 +148,9 @@ def show(food):
     """
     
     # TODO: Add code here.
+    for (x,y) in food:
+        display.set_pixel(x,y,9)
+        
 
 ########################################################################
 #### Abstraction level 1 - Functions used by event loop.            ####
@@ -223,7 +231,7 @@ def spawn(n):
     (hero, food) = spawn_hero_and_food(n)
     
     # Show animation.
-    bangs()
+    bangs(3,300)
     
     # Light up all food positions on the display.
     show(food)
