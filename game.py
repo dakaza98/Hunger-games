@@ -5,15 +5,15 @@ from random import randint
 
 # https://www.it.uu.se/education/course/homepage/introit/ht17/draft/assignment-1/
 
-# Author: Karl Marklund <karl.marklund@it.uu.se> september 2017.
+# Author: Karl Marklund <karl.marklund@it.uu.se> september 2017. 
 
-# In Python all functions must be defiend before being used. Therefore the top
+# In Python all functions must be defiend before being used. Therefore the top 
 # (the highest level of abstraction) is at the end of this source file and
-# the bottom (the lovest level of abstraction) is at the beginning of this
-# source file.
+# the bottom (the lovest level of abstraction) is at the beginning of this 
+# source file. 
 
 ########################################################################
-#### Abstraction level 5 - Functions used by the level 4 functions. #### 
+#### Abstraction level 5 - Functions used by the level 4 functions. ####          
 ########################################################################
 
 def random_point():
@@ -21,9 +21,7 @@ def random_point():
     Returns a random point (x, y) on the map.
     """
     
-
     return (randint(0, 4), randint(0,4))
-
 
 ########################################################################
 #### Abstraction level 4 - Functions used by the level 3 functions. ####          
@@ -63,7 +61,7 @@ def add_random_point(s):
 #### Abstraction level 3 - Functions used by the level 2 functions. ####          
 ########################################################################
 
-def bang(delay=85):
+def bang(delay=200):
     """
     Side effects: Shows a simple but attractive animation on the display.
 
@@ -72,6 +70,11 @@ def bang(delay=85):
     """
     
     # TODO: Add code here.
+    empty = Image("00000:00000:00000:00000:00000")
+    dot = Image("00000:00000:00900:00000:00000")
+    animation= [empty, dot, Image.DIAMOND_SMALL, Image.DIAMOND, empty]
+    display.show (animation, delay= 200)
+
 
 def random_points(n):
     """
@@ -206,15 +209,11 @@ def flash(hero, delay=90):
 
     Return value: None.
     """
-
+    
     # Tuple matching to get the x-value and y-value of the hero position.
     (x, y) = hero
 
-    # Makes the hero flash
-    display.set_pixel(x, y, 9)
-    sleep(delay)
-    display.set_pixel(x, y, 0)
-    sleep(delay)
+    # TODO: Add code here.
 
 def spawn(n):
     """
@@ -267,7 +266,7 @@ while True:
         (hero, food) = spawn(5)
 
     # Make the position of the hero flash.
-    flash(hero, 300)
+    flash(hero)
 
     # Update the hero position on button presses.
     hero = move(hero)
