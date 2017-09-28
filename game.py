@@ -220,7 +220,11 @@ def flash(hero, delay=90):
     # Tuple matching to get the x-value and y-value of the hero position.
     (x, y) = hero
 
-    # TODO: Add code here.
+    # Makes the hero flash
+    display.set_pixel(x, y, 9)
+    sleep(delay)
+    display.set_pixel(x, y, 0)
+    sleep(delay)
 
 def spawn(n):
     """
