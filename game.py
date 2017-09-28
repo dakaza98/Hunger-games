@@ -171,11 +171,19 @@ def move(hero):
     (x, y) = hero
 
     if button_a.was_pressed():
-       x = x + 1 # TODO: Change this.
+        x = makeMove(x)
     elif button_b.was_pressed():
-       y = y + 1 # TODO: Change this. 
+        y = makeMove(y)
 
     return (x, y)
+
+def makeMove(coordinate):
+    if(coordinate == 4):
+        coordinate = 0
+    else:        
+        coordinate += 1
+       
+    return coordinate
 
 def flash(hero, delay=90):
     """
