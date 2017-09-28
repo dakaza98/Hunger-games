@@ -157,7 +157,7 @@ def eat(hero, food):
 
      
     if hero in food: 
-       pass  
+        food.discard(hero)
   
     return food 
   
