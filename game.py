@@ -171,9 +171,9 @@ def move(hero):
     (x, y) = hero
 
     if button_a.was_pressed():
-       x = x # TODO: Change this.
+       x = x + 1 # TODO: Change this.
     elif button_b.was_pressed():
-       y = y # TODO: Change this. 
+       y = y + 1 # TODO: Change this. 
 
     return (x, y)
 
