@@ -50,7 +50,7 @@ def add_random_point(s):
 #### Abstraction level 3 - Functions used by the level 2 functions. ####           
 ######################################################################## 
   
-def bang(delay): 
+def bang(delay = 85): 
     # Side effects: Shows a simple but attractive animation on the display. 
   
     # Argument(s): 
@@ -59,7 +59,7 @@ def bang(delay):
     empty = Image("00000:00000:00000:00000:00000") 
     dot = Image("00000:00000:00900:00000:00000") 
     animation= [empty, dot, Image.DIAMOND_SMALL, Image.DIAMOND, empty] 
-    display.show (animation, delay= 85) 
+    display.show (animation, delay) 
   
 def random_points(n): 
     # Creates a set with n random points (x, y). 
