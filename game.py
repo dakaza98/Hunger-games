@@ -50,7 +50,7 @@ def add_random_point(s):
 #### Abstraction level 3 - Functions used by the level 2 functions. ####           
 ######################################################################## 
   
-def bang(delay = 85): 
+def bang(delay=85): 
     # Side effects: Shows a simple but attractive animation on the display. 
   
     # Argument(s): 
@@ -121,7 +121,7 @@ def show(food):
     #   food available. 
   
     for (x,y) in food: 
-        display.set_pixel(x,y,9) 
+        display.set_pixel(x,y,6) 
          
 ######################################################################## 
 #### Abstraction level 1 - Functions used by event loop.            #### 
